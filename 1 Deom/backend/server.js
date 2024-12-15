@@ -28,7 +28,9 @@ mongoose
 // Routes
 const itemRoutes = require("./routes/itemRoutes");
 app.use("/api/items", itemRoutes);
-
+app.use("/", (req, res) => {
+  res.send("Hello from the backend!");
+})
 // Start the server
 app.listen(PORT, () =>
   console.log(`Server running on http://localhost:${PORT}`)
