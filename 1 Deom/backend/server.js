@@ -8,7 +8,12 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+// Allow requests from the frontend URL
+app.use(cors({
+  origin: 'https://vinoth-frontend.vercel.app', // Replace with your frontend's URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  credentials: true, // Enable credentials if required
+}));
 app.use(express.json());
 
 // Connect to MongoDB
