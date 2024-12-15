@@ -6,13 +6,13 @@ function App() {
     const [newItem, setNewItem] = useState('');
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/items')
+        axios.get('https://vinoth-backend.vercel.app/api/items')
             .then(response => setItems(response.data))
             .catch(error => console.error(error));
     }, []);
 
     const addItem = () => {
-        axios.post('http://localhost:5000/api/items', { name: newItem })
+        axios.post('https://vinoth-backend.vercel.app/api/items', { name: newItem })
             .then(response => setItems([...items, response.data]))
             .catch(error => console.error(error));
     };
