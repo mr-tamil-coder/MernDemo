@@ -6,6 +6,7 @@ function App() {
     const [newItem, setNewItem] = useState('');
 
     useEffect(() => {
+        console.log('Fetching items...');
         axios.get('https://vinoth-backend.vercel.app/api/items')
             .then(response => setItems(response.data))
             .catch(error => console.error(error));
